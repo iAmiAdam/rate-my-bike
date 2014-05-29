@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-RateMyBike::Application.config.secret_key_base = '16f381708d5fa0de1c7619d505d6dfcefea8d42b55a230ee2c1c5317357bece829e35e028a89ed488d393a9bb71db633470e5a43c60500fcd92a10cf3382ebaf'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+RateMyBike::Application.config.secret_key_base = secure_token

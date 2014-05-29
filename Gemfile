@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.5'
-gem 'bootstrap-sass', '2.3.2.0'
+gem 'bootstrap-sass', '3.1.1'
 gem 'sprockets', '2.11.0'
-gem 'bcrypt-ruby', '3.1.2'
+gem 'bcrypt-ruby', '3.1.5'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
@@ -53,4 +53,5 @@ end
 # gem 'debugger', group: [:development, :test]
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
