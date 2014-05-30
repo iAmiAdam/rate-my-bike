@@ -1,0 +1,15 @@
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+     		<a class="navbar-brand" href="#">Rate My Bike</a>
+     	</div>
+
+     	<%= form_tag "/", :method => :get, :class => "navbar-form navbar-right"  do |f| %>
+     	<div class="form-group">
+     		<%= text_field :username, placeholder: 'Username' %>
+     		<%= text_field :password, placeholder: 'Password' %>
+     		<%= submit_tag("Sign in", class: "btn btn-default") %>
+     	</div>
+     	<% end %>
+    </div>
+</nav>

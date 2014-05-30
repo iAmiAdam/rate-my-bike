@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.5'
 gem 'bootstrap-sass', '3.1.1'
+gem 'font-awesome-sass'
 gem 'sprockets', '2.11.0'
 gem 'bcrypt-ruby', '3.1.5'
 gem 'faker', '1.1.2'
