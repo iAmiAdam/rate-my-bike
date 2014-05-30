@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		@user.save
+		redirect_to root_url
 	end
 
 
