@@ -2,6 +2,11 @@
 
 /* Mixins, variables, etc. */
 
+@mixin box_sizing {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
 
 /* Navbar */
 
@@ -61,4 +66,20 @@
 
 #wrapper {
 	margin-right: 10px;
+}
+
+/* forms */
+
+
+
+#error_explanation {
+	color: #f00;
+	ul {
+		list-style: none;
+		margin: 0 0 18px 0;
+	}
+}
+
+.field_with_errors {
+	@extend .has-error;
 }
