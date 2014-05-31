@@ -14,10 +14,10 @@
 		<ul class="sidebar-nav" id="navbar-collapse-1">
 			<li><%= link_to '<i class="fa fa-plus fa-2x"></i>'.html_safe, root_path %></li>
 			<li><%= link_to '<i class="fa fa-bell fa-2x"></i>'.html_safe, root_path %></li>
-			<li><%= link_to '<i class="fa fa-user fa-2x"></i>'.html_safe, root_path %></li>
+			<li><%= link_to '<i class="fa fa-user fa-2x"></i>'.html_safe, current_user.username %></li>
 			<li><%= link_to '<i class="fa fa-users fa-2x"></i>'.html_safe, root_path %></li>
-			<li><%= link_to '<i class="fa fa-signal fa-2x"></i>'.html_safe, root_path %></li>
-			<li><%= link_to '<i class="fa fa-cog fa-2x"></i>'.html_safe, edit_user_path(current_user) %></li>
+			<li><%= link_to '<i class="fa fa-signal fa-2x"></i>'.html_safe, "/#{current_user.username}" %></li>
+			<li><%= link_to '<i class="fa fa-cog fa-2x"></i>'.html_safe, 'settings/account' %></li>
 			<li><%= link_to '<i class="fa fa-sign-out fa-2x"></i>'.html_safe, signout_path %></li>
 		</ul>
 	<% end %>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	#before_action :correct_user, only: [:edit, :update]
+	before_action :correct_user, only: [:destroy]
 	before_action :already_signed_in, only: [:create, :new]
 	
 	def index
@@ -37,6 +37,9 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
+		User.find_by(:username, params[:username])
+		flash[:success] = "Account deleted."
+		redirect_to root_url
 	end
 
 	private
