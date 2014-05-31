@@ -1,0 +1,25 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+	<div class="col-lg-4">
+		<div class="well">
+			<%= render 'shared/mini_profile' %>
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="well">
+				<%= render 'shared/user_bikes' %>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-4">
+		<div class="well">
+			<%= render 'shared/user_stats' %>
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="well">
+			<%= render 'shared/user_comments' %>
+		</div>
+	</div>
+</div>

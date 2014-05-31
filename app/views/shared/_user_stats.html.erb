@@ -1,0 +1,17 @@
+<% @user ||= current_user %>
+<div class="container">
+	<strong id="bikes" class="stat">
+		4
+		<%= #@user.bikes.count %>
+	</strong>
+	Bikes
+	<strong id="friends" class="stat">
+		5
+		<%= #@user.friends.count %>
+	</strong>
+	Friends
+	<strong id="comments" class="stat">
+		6
+		<%= #@user.comments.count %>
+	</strong>
+</div>

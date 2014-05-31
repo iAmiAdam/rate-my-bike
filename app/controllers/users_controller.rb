@@ -19,6 +19,9 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def show
+		@user = User.ci_find('username', params[:username])
+	end
 
 	def destroy
 	end
