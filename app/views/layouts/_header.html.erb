@@ -3,11 +3,25 @@
 		<div class="navbar-header">
      		<a class="navbar-brand" href="#">Rate My Bike</a>
      	</div>
-
-     	<%= form_for(:session, url: sessions_path, html: {class: "navbar-form navbar-right"})  do |f| %>
-     		<%= f.text_field :username, class: 'form-control', placeholder: 'Username' %>
-     		<%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
-     		<%= f.submit "Sign in", class: "btn btn-default" %>
-     	<% end %>
+        <% if !signed_in? then %>
+     	  <%= form_for(:session, url: sessions_path, html: {class: "navbar-form navbar-right"})  do |f| %>
+     		 <%= f.text_field :username, class: 'form-control', placeholder: 'Username' %>
+     		 <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
+     		 <%= f.submit "Sign in", class: "btn btn-default" %>
+     	  <% end %>
+        <% else %>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    <%= @user.username %> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a>Profile</a></li>
+                    <li><a>Settings</a></li>
+                    <li class="divider"></li>
+                    <li><%= link_to "Sign out", signout_path %></li>
+                </ul>
+            </li>
+        </ul>
+        <% end %>
     </div>
 </nav>
