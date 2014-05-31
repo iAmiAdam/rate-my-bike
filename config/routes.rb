@@ -6,7 +6,7 @@ RateMyBike::Application.routes.draw do
   match '/', to: 'static_pages#home', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
   match 'signout', to: 'sessions#destroy', via: 'delete'
-  match '/username', to: 'users#show', via: 'get'
+  match '/:username', to: 'users#show', via: 'get'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

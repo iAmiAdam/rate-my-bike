@@ -1,17 +1,24 @@
 <% @user ||= current_user %>
-<div class="container">
-	<strong id="bikes" class="stat">
-		4
-		<%= #@user.bikes.count %>
-	</strong>
+<div class="container-fluid" id="stats">
+	<a href="#">
+		<strong id="bikes" class="stat">
+			4
+			<% #@user.bikes.count %>
+		</strong>
 	Bikes
-	<strong id="friends" class="stat">
-		5
-		<%= #@user.friends.count %>
-	</strong>
+	</a>
+	<a href="#">
+		<strong id="friends" class="stat">
+			5
+			<% #@user.friends.count %>
+		</strong>
 	Friends
-	<strong id="comments" class="stat">
-		6
-		<%= #@user.comments.count %>
-	</strong>
+	</a>
+	<a href="#">
+		<strong id="comments" class="stat">
+			6
+			<% #@user.comments.count %>
+		</strong>
+	Comments
+	</a>
 </div>
