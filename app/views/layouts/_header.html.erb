@@ -4,12 +4,10 @@
      		<a class="navbar-brand" href="#">Rate My Bike</a>
      	</div>
 
-     	<%= form_tag "/", :method => :get, :class => "navbar-form navbar-right"  do |f| %>
-     	<div class="form-group">
-     		<%= text_field :username, 'username', class: 'form-control', value: 'Username' %>
-     		<%= password_field :password, 'password', class: 'form-control', value: 'Password' %>
-     		<%= submit_tag("Sign in", class: "btn btn-default") %>
-     	</div>
+     	<%= form_for(:session, url: sessions_path, html: {class: "navbar-form navbar-right"})  do |f| %>
+     		<%= f.text_field :username, class: 'form-control', placeholder: 'Username' %>
+     		<%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
+     		<%= f.submit "Sign in", class: "btn btn-default" %>
      	<% end %>
     </div>
 </nav>

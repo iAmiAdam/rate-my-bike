@@ -4,10 +4,11 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		user = User.find_by_email(params[:session][:email].downcase)
+		user = User.ci_find('username', params[:session][:username])
 		if user && user.authenticate(params[:session][:password])
 			sign_in user
 			redirect_to root_url
+		end
 	end
 
 	def destroy
