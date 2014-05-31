@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :correct_user, only: [:edit, :update]
+	#before_action :correct_user, only: [:edit, :update]
 	before_action :already_signed_in, only: [:create, :new]
 	
 	def index
@@ -21,6 +21,19 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.ci_find('username', params[:username])
+	end
+
+	def edit
+		@user = current_user 
+	end
+
+	def update
+		@user = current_user
+		if @user.update_attributes(user_params)
+			redirect_to @user
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
