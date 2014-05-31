@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 	# Make the user's email lower case to save any headaches when searching
 	before_save { self.email = email.downcase }
 	# Create a token to remember the session on the first sign in
-	# before_create :create_remember_token
+	before_create :create_remember_token
 
 	# Validate username
 	VALID_USERNAME_REGEX= /\A[a-z][a-z0-9_\.]/i
