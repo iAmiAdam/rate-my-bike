@@ -1,0 +1,21 @@
+<%= render 'shared/error_messages', object: f.object %>
+<div class="form-group">
+	<%= f.label :make %>
+	<%= f.text_field :make, class: "form-control" %>
+</div>
+<div class="form-group">
+	<%= f.label :model %>
+	<%= f.text_field :model, class: "form-control" %>
+</div>
+<div class="form-group">
+	<%= f.label :name %>
+	<%= f.text_field :name, class: "form-control" %>
+</div>
+<div class="form-group">
+	<%= f.label :description %>
+	<%= f.text_area :description, class: "form-control" %>
+</div>
+<div class="form-group">
+	<%= f.label :category %>
+	<%= f.select(:category, [['Road', 1], ['MTB', 2], ['Track', 3], ['Cyclo-Cross', 4], ['Time Trial', 5], ['Fixed', 6]]) %>
+</div>
