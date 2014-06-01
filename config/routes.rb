@@ -5,7 +5,8 @@ RateMyBike::Application.routes.draw do
   
   match '/', to: 'static_pages#home', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
-  match 'signout', to: 'sessions#destroy', via: 'delete'
+  match '/signin', to: 'sessions#new', via: 'get'
+  match '/signout', to: 'sessions#destroy', via: 'delete'
   match '/:username', to: 'users#show', via: 'get'
   match '/settings/account', to: 'users#edit', via: 'get'
 

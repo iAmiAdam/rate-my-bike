@@ -41,7 +41,7 @@ module SessionsHelper
 
 	def sign_out
 		# Reset remember token to prevent cookie hijacking
-		current_user.update_attribute(:remember_token, User.digest(remember_token))
+		current_user.update_attribute(:remember_token, User.digest(User.new_remember_token))
 		cookies.delete(:remember_token)
 		# Reset current_user to nothing
 		self.current_user = nil
