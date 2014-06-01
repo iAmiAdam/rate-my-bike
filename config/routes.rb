@@ -1,6 +1,7 @@
 RateMyBike::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :bikes
   root to: 'static_pages#home'
   
   match '/', to: 'static_pages#home', via: 'get'
@@ -9,6 +10,7 @@ RateMyBike::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: 'delete'
   match '/:username', to: 'users#show', via: 'get'
   match '/settings/account', to: 'users#edit', via: 'get'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
