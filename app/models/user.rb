@@ -5,14 +5,16 @@ class User < ActiveRecord::Base
 	has_many :comments, dependent: :destroy
 	# Users have many friends with the correct database key, obviously dependent on the user
 	has_many :friends, foreign_key: "friend_id", dependent: :destroy
+	# Hopefully user's will upload an avatar
+	has_many :images, dependent: :destroy
 	# Make the user's email lower case to save any headaches when searching
 	before_save { self.email = email.downcase }
 	# Create a token to remember the session on the first sign in
 	before_create :create_remember_token
 
 	# Validate username
-	VALID_USERNAME_REGEX= /\A[a-z][a-z0-9_\.]/i
-	validates :username, presence: true, format: {with: VALID_USERNAME_REGEX}, length: { minimum: 3, maximum: 20 }, uniqueness: {case_sensitive: false}
+	VALID_USERNAME_REGEX = /\A[a-z][a-z0-9_\.]/i
+	validates :username, presence: true, format: { with: VALID_USERNAME_REGEX }, length: { minimum: 3, maximum: 20 }, uniqueness: {case_sensitive: false}
 
 	# Validate email
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+[a-z]\.[a-z]+\z/i

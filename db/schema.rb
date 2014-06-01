@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531213633) do
+ActiveRecord::Schema.define(version: 20140601205510) do
 
   create_table "bikes", force: true do |t|
     t.string   "make"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 20140531213633) do
     t.text     "description"
     t.integer  "category"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "images", force: true do |t|
+    t.string   "user_id"
+    t.string   "bike_id"
+    t.string   "file_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
