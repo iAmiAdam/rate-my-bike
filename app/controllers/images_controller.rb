@@ -5,10 +5,23 @@ class ImagesController < ApplicationController
 	end
 
 	def create
-		if image_params.user_id
+		if image_params.user_id then
 			current_user.images.build(image_params)
 		else
-			current_user.bike.images.build(image_params)
+			current_user.bikes.images.build(image_params)
+		end
+	end
+
+	def edit
+		@image = Image.find_by(params[:id])
+	end
+
+	def update
+		@image = Image.find_by(params[:id])
+		if @image.update_attributes(image_params) then
+			redirect_to root_url #needs changing
+		else
+			render 'edit'
 		end
 	end
 
