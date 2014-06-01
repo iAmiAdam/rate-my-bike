@@ -6,6 +6,8 @@ class BikesController < ApplicationController
 	end
 
 	def show
+		@bike = Bike.find_by(params[:id])
+		@user = User.find_by(@bike.user_id)
 	end
 
 	def new
