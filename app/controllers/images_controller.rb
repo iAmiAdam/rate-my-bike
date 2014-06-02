@@ -7,7 +7,7 @@ class ImagesController < ApplicationController
 	def update 
 		directory = "public/assets/images/avatars"
 
-		if current_user.avatar then
+		if !current_user.avatar.empty? then
 			File.delete(directory + "/" + current_user.avatar)
 		end
 
