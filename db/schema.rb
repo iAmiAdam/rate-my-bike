@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140601205510) do
+ActiveRecord::Schema.define(version: 20140602112219) do
 
   create_table "bikes", force: true do |t|
     t.string   "make"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20140601205510) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin",           default: false
+    t.string   "avatar"
   end
 
 end

@@ -1,28 +1,15 @@
 class ImagesController < ApplicationController
 
 	def new
-		@image = Image.new
+		Image.avatarSave(params(:image))
 	end
 
-	def create
-		if image_params.user_id then
-			current_user.images.build(image_params)
-		else
-			current_user.bikes.images.build(image_params)
+	def update 
+		uploaded = params[:upload]
+		File.open(Rails.root.join('public', 'assets', 'images', 'avatars', uploaded.original_filename), 'wb') do |file|
+			file.write(uploaded.read)
 		end
-	end
-
-	def edit
-		@image = Image.find_by(params[:id])
-	end
-
-	def update
-		@image = Image.find_by(params[:id])
-		if @image.update_attributes(image_params) then
-			redirect_to root_url #needs changing
-		else
-			render 'edit'
-		end
+		current_user.update_attribute(:avatar, uploaded.original_filename)
 	end
 
 	def destroy
@@ -32,4 +19,6 @@ class ImagesController < ApplicationController
 		def image_params
 			params.require(:image).permit(:file_name)
 		end
+
+
 end

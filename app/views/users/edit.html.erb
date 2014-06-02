@@ -17,5 +17,12 @@
 			<%= link_to content_tag('i', '', class: 'fa fa-trash-o fa-3x'), current_user.username, data: { confirm: "Are you sure you want to delete your account?" }, method: :delete %> Delete my Account
 		</div>
 		</div>
+
+		<div class="well">
+		<%= form_tag({controller: :images, action: :update}, multipart: true) do %>
+			<%= file_field_tag 'upload' %>
+			<%= submit_tag "Upload" %>
+		<% end %>
+		</div>
 	</div>
 </div>

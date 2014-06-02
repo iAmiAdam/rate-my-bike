@@ -2,7 +2,10 @@ RateMyBike::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :bikes
+  resources :images
   root to: 'static_pages#home'
+
+  post ':controller(/:action(/:id(.:format)))'
   
   match '/', to: 'static_pages#home', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
