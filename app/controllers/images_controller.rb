@@ -5,16 +5,23 @@ class ImagesController < ApplicationController
 	end
 
 	def update 
-		
+		directory = "public/assets/images/avatars"
+
+		if current_user.avatar then
+			File.delete(directory + "/" + current_user.avatar)
+		end
+
 		uploaded = params[:upload]
 		newName = random_name
-		directory = "public/assets/images/avatars"
-		File.open(Rails.root.join('public', 'assets', 'images', 'avatars', uploaded.original_filename), 'wb') do |f|
+
+		File.open((directory + "/" + uploaded.original_filename), 'wb') do |f|
 			f.write(uploaded.read)
 		end
+
 		extension = File.extname(directory + "/" + uploaded.original_filename)
 		File.rename(directory + "/" + uploaded.original_filename, directory + "/" + newName + File.extname(directory + "/" + uploaded.original_filename))
 		current_user.update_attribute(:avatar, "#{newName}#{extension}")
+		redirect_to settings_account_path
 	end
 
 	def destroy
