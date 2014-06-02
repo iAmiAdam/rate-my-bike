@@ -5,11 +5,16 @@ class ImagesController < ApplicationController
 	end
 
 	def update 
+		
 		uploaded = params[:upload]
-		File.open(Rails.root.join('public', 'assets', 'images', 'avatars', uploaded.original_filename), 'wb') do |file|
-			file.write(uploaded.read)
+		newName = random_name
+		directory = "public/assets/images/avatars"
+		File.open(Rails.root.join('public', 'assets', 'images', 'avatars', uploaded.original_filename), 'wb') do |f|
+			f.write(uploaded.read)
 		end
-		current_user.update_attribute(:avatar, uploaded.original_filename)
+		extension = File.extname(directory + "/" + uploaded.original_filename)
+		File.rename(directory + "/" + uploaded.original_filename, directory + "/" + newName + File.extname(directory + "/" + uploaded.original_filename))
+		current_user.update_attribute(:avatar, "#{newName}#{extension}")
 	end
 
 	def destroy
@@ -20,5 +25,7 @@ class ImagesController < ApplicationController
 			params.require(:image).permit(:file_name)
 		end
 
-
+		def random_name
+			Digest::SHA1.hexdigest(Time.now.to_s)
+		end
 end
