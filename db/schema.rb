@@ -15,7 +15,6 @@
 ActiveRecord::Schema.define(version: 20140602112219) do
 
   create_table "images", force: true do |t|
-    t.integer "user_id"
     t.integer "bike_id"
     t.string "file_name"
     t.datetime "created_at"
