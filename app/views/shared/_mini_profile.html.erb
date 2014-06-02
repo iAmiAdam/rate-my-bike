@@ -1,6 +1,6 @@
 <% @user ||= current_user %>
 <div class="container">
-	<p>Avatar Space</p>
+	<img src="<%= "public/assets/images/avatars/#{@user.avatar}" %>"></img>
 </div>
 <div class="container">
 	<%= @user.username %>
