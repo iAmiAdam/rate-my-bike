@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
 	# Users have many friends with the correct database key, obviously dependent on the user
 	has_many :friends, foreign_key: "friend_id", dependent: :destroy
 	# Hopefully user's will upload an avatar
-	has_attached_file :avatar, :styles => { :large => ">", :medium => ">", :small => ">", :thumb => ">"}, :default_url => "/images/:style/missing.png"
+	
 	# Let's check that avatar is an image
-	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+	
 	# Make the user's email lower case to save any headaches when searching
 	before_save { self.email = email.downcase }
 	# Create a token to remember the session on the first sign in
