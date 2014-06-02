@@ -44,6 +44,10 @@ class User < ActiveRecord::Base
 		Digest::SHA1.hexdigest(token.to_s)
 	end
 
+	def profile_feed
+		Bike.find_by(:user_id, @user.user_id)
+	end
+
 	private
 
 		# Creating tokens so that User's are remembered

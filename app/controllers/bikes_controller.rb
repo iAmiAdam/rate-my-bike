@@ -17,7 +17,7 @@ class BikesController < ApplicationController
 	def create
 		@bike = current_user.bikes.build(bike_params)
 		if @bike.save
-			redirect_to root_url
+			redirect_to @bike
 		end
 	end
 
@@ -33,7 +33,6 @@ class BikesController < ApplicationController
 			render 'edit'
 		end
 	end
-
 
 	private
 
