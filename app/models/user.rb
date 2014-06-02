@@ -5,10 +5,6 @@ class User < ActiveRecord::Base
 	has_many :comments, dependent: :destroy
 	# Users have many friends with the correct database key, obviously dependent on the user
 	has_many :friends, foreign_key: "friend_id", dependent: :destroy
-	# Hopefully user's will upload an avatar
-	
-	# Let's check that avatar is an image
-	
 	# Make the user's email lower case to save any headaches when searching
 	before_save { self.email = email.downcase }
 	# Create a token to remember the session on the first sign in
@@ -45,7 +41,7 @@ class User < ActiveRecord::Base
 	end
 
 	def profile_feed
-		Bike.find_by(:user_id, @user.user_id)
+		Bike.find_by(:user_id, self.id)
 	end
 
 	private
