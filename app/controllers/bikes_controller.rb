@@ -37,7 +37,7 @@ class BikesController < ApplicationController
 	private
 
 		def bike_params
-			params.require(:bike).permit(:make, :model, :name, :description, :category)
+			params.require(:bike).permit(:make, :model, :name, :description, :category, :picture)
 		end
 
 		def correct_user
