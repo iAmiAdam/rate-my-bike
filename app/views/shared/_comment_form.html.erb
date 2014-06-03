@@ -1,0 +1,8 @@
+<%= form_for(@comment, method: :post) do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<div class="form-group">
+		<%= f.text_area :content, placeholder: "Add a new comment...", class: "form-control" %>
+		<%= f.hidden_field :bike_id, value: @bike.id %>
+	</div>
+	<%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>
