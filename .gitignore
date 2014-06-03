@@ -23,3 +23,4 @@ doc/*.swp
 .idea
 .secret
 /public/assets/images
+/public/system
