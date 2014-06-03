@@ -23,6 +23,9 @@ class User < ActiveRecord::Base
 	# Validate password
 	validates :password, length: { minimum: 6 }
 
+	# Validate bio
+	validates :bio, length: { maximum: 200 }
+
 	# Scope to search for database items without case getting in the way
 	scope :ci_find, lambda { |attribute, value| where("lower(#{attribute}) = ?", value.downcase).first }
 

@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.ci_find('username', params[:username])
+		@profile_bikes = @user.bikes
 	end
 
 	def edit
@@ -30,7 +31,7 @@ class UsersController < ApplicationController
 	def update
 		@user = current_user
 		if @user.update_attributes(user_params)
-			redirect_to @user
+			redirect_to "/#{current_user.username}"
 		else
 			render 'edit'
 		end
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
 	private
 
 		def user_params
-			params.require(:user).permit(:username, :email, :password, :password_confirmation, :avatar)
+			params.require(:user).permit(:username, :email, :password, :password_confirmation, :bio, :avatar)
 		end
 
 		def correct_user
