@@ -20,7 +20,7 @@ class ImagesController < ApplicationController
 
 		extension = File.extname(directory + "/" + uploaded.original_filename)
 		File.rename(directory + "/" + uploaded.original_filename, directory + "/" + newName + File.extname(directory + "/" + uploaded.original_filename))
-		current_user.update_attribute(:avatar, "#{newName}#{extension}")
+		current_user.images.build(image_params)
 		redirect_to settings_account_path
 	end
 
@@ -29,7 +29,7 @@ class ImagesController < ApplicationController
 
 	private
 		def image_params
-			params.require(:image).permit(:file_name)
+			params.require(:image).permit(:photo)
 		end
 
 		def random_name

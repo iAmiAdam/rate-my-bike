@@ -11,16 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20140602112219) do
 
-  create_table "images", force: true do |t|
-    t.integer "bike_id"
-    t.string "file_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
- 
   create_table "bikes", force: true do |t|
     t.string   "make"
     t.string   "model"
@@ -32,6 +24,15 @@ ActiveRecord::Schema.define(version: 20140602112219) do
     t.datetime "updated_at"
   end
 
+  create_table "images", force: true do |t|
+    t.integer  "bike_id"
+    t.integer  "user_id"
+    t.string   "image_uid"
+    t.string   "image_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "username"
     t.string   "password_digest"
@@ -39,7 +40,7 @@ ActiveRecord::Schema.define(version: 20140602112219) do
     t.string   "remember_token"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "admin",          default: false
+    t.boolean  "admin",           default: false
     t.string   "avatar"
   end
 

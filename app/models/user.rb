@@ -5,10 +5,8 @@ class User < ActiveRecord::Base
 	has_many :comments, dependent: :destroy
 	# Users have many friends with the correct database key, obviously dependent on the user
 	has_many :friends, foreign_key: "friend_id", dependent: :destroy
-	# Hopefully user's will upload an avatar
-	
-	# Let's check that avatar is an image
-	
+	# Hopefully user's will upload an avatar, this is to generate thumbnails of it
+	dragonfly_accessor :photo
 	# Make the user's email lower case to save any headaches when searching
 	before_save { self.email = email.downcase }
 	# Create a token to remember the session on the first sign in
