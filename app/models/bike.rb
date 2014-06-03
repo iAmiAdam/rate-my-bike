@@ -14,4 +14,6 @@ class Bike < ActiveRecord::Base
 	# Validate description
 	validates :description, presence: true, length: { minimum: 15, maximum: 200}
 
+
+	has_many :comments
 end

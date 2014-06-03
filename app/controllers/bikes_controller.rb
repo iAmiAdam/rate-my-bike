@@ -8,6 +8,7 @@ class BikesController < ApplicationController
 	def show
 		@bike = Bike.find_by(params[:id])
 		@user = User.find_by(@bike.user_id)
+		@comments = @bike.comments
 		@comment = current_user.comments.build
 	end
 

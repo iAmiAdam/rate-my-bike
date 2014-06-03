@@ -3,4 +3,6 @@ class Comment < ActiveRecord::Base
 	belongs_to :user
 	# Validate content of the comment
 	validates :content, length: { minimum: 10, maximum: 200}
+
+	belongs_to :bike
 end
