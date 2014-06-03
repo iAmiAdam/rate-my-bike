@@ -1,7 +1,7 @@
 <% @user ||= current_user %>
 <div class="container-fluid" id="user-info">
 	
-	<%= image_tag @user.avatar.thumb('300x200#') %>
+	<%= image_tag @user.avatar.thumb('200x200#').url %>
 
 
 	<h3><%= @user.username %></h3>
