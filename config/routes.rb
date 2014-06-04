@@ -4,6 +4,8 @@ RateMyBike::Application.routes.draw do
   resources :bikes
   resources :comments, only: [:create, :edit, :destroy]
   resources :images
+  resources :relationships, only: [:create, :destroy]
+
   root to: 'static_pages#home'
 
   post ':controller(/:action(/:id(.:format)))'

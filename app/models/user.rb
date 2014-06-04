@@ -44,6 +44,18 @@ class User < ActiveRecord::Base
 		Digest::SHA1.hexdigest(token.to_s)
 	end
 
+	def friend?(other_user)
+		relationships.find_by(friend_id: other_user.id)
+	end
+
+	def add!(other_user)
+		relationships.create!(friend_id: other_user.id)
+	end
+
+	def remove!(other_user)
+		relationships.find_by(friend_id: other_user.id).destroy
+	end
+
 	private
 
 		# Creating tokens so that User's are remembered
