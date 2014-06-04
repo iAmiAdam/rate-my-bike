@@ -5,20 +5,18 @@
 			
 			 <%= @user.bikes.count %>
 		</strong>
-	Bikes
+	<%= unless @user.bikes.count === 1 then "Bikes" else "Bike" end %>
 	</a>
 	<a>
 		<strong id="friends" class="stat">
-			5
-			<% #@user.friends.count %>
+			<%= @user.relationships.count %>
 		</strong>
-	Friends
+	<%= unless @user.relationships.count === 1 then "Friends" else "Friend" end %>
 	</a>
 	<a>
 		<strong id="comments" class="stat">
-			6
-			<% #@user.comments.count %>
+			<%= @user.comments.count %>
 		</strong>
-	Comments
+	<% unless @user.comments.count == 1 then "Comments" else "Comment" end %>
 	</a>
 </div>

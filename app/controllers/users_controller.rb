@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 	def show
 		@user = User.ci_find('username', params[:username])
 		@profile_bikes = @user.bikes
+		@profile_comments = @user.comments
 	end
 
 	def edit
