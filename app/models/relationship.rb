@@ -1,3 +1,3 @@
 class Relationship < ActiveRecord::Base
 	belongs_to :friend, class_name: "User"
-end
+	validates: :user_id, presence: true
