@@ -17,6 +17,6 @@
 		<strong id="comments" class="stat">
 			<%= @user.comments.count %>
 		</strong>
-	<% unless @user.comments.count == 1 then "Comments" else "Comment" end %>
+	<%= unless @user.comments.count === 1 then "Comments" else "Comment" end %>
 	</a>
 </div>
