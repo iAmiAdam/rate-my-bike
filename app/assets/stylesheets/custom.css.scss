@@ -32,6 +32,10 @@
 .timestamp {
 	float: left;
 	display: block;
+	clear: left;
+	a {
+		color: $gray-light;
+	}
 }
 
 /* Navbar */
