@@ -1,3 +1,5 @@
-<div class="container-fluid">
-	<p><%= comment.content %></p>
+<div class="container-fluid" id="comment">
+	<%= image_tag @user.avatar.thumb("40x40#n").url, class: "comment-avatar" %>
+	<div class="comment-content"><%= comment.content %></div>
+	<div class="timestamp"><%= time_ago_in_words(comment.created_at) %> ago</div>
 </div>
