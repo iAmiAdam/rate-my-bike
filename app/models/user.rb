@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
 	# Users have many comments which will be destroyed is the user is deleted
 	has_many :comments, dependent: :destroy
 	# Users have many friends with the correct database key, obviously dependent on the user
-	has_many :friends, foreign_key: "friend_id", dependent: :destroy
+	has_many :relationships, foreign_key: "user_id", dependent: :destroy
+	# A User has many friends in the relationships table
+	has_many :friends, through: :relationships, source: :relationships, source: :friend
 	# Hopefully user's will upload an avatar, this is to generate thumbnails of it
 	dragonfly_accessor :avatar
 	# Make the user's email lower case to save any headaches when searching
