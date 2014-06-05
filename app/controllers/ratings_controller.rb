@@ -1,7 +1,7 @@
 class RatingsController < ApplicationController
 
 	def create
-		if Rating.where(user_id: current_user.id, bike_id: params[:rating][:bike_id], created_at >= Date.today.beginning_of_day, created_at: <= Date.today.end_of_day) === true then 
+		if Rating.find(:all, conditions: { created_at: Time.now.day, bike_id: params[:rating][:bike_id]} ) === true then 
 			redirect_to bike_path(params[:rating][:bike_id]) 
 		else 
 			@rating = current_user.ratings.build(rating_params)
