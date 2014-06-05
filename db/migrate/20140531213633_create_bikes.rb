@@ -7,6 +7,7 @@ class CreateBikes < ActiveRecord::Migration
       t.text :description
       t.integer :category
       t.integer :user_id
+      t.integer :rating
 
       t.timestamps
     end

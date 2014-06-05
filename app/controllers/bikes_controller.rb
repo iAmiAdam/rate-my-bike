@@ -10,6 +10,7 @@ class BikesController < ApplicationController
 		@user = User.find_by(@bike.user_id)
 		@comments = @bike.comments
 		@comment = current_user.comments.build
+		@rating = Rating.new
 	end
 
 	def new

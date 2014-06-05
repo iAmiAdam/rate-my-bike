@@ -1,8 +1,8 @@
 class RatingsController < ApplicationController
 
 	def create
-		if rated?(current_user.id, params[:bike_id]) then 
-			redirect_to bike_path(params[:bike_id] 
+		if Rating.where(user_id: current_user.id, bike_id: params[:bike_id], created_at: Time.now) === true then 
+			redirect_to bike_path(params[:bike_id]) 
 		else 
 			current_user.ratings.build(rating_params)
 			@bike = bike.find_by(params[:bike_id])
@@ -14,8 +14,7 @@ class RatingsController < ApplicationController
 	end
 
 	private
-
 		def rating_params
-			params.require(:rating).permit(:bike_id, :rating)
+			params.permit(:bike_id, :score)
 		end
 end

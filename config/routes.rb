@@ -17,6 +17,7 @@ RateMyBike::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: 'delete'
   match '/:username', to: 'users#show', via: 'get'
   match '/settings/account', to: 'users#edit', via: 'get'
+  match '/rate/:bike_id', to: 'ratings#create', via: 'get'
 
 
 

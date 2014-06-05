@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 	has_many :relationships, foreign_key: "user_id", dependent: :destroy
 	# A User has many friends in the relationships table
 	has_many :friends, through: :relationships, source: :relationships, source: :friend
+	# Ratings also belongs to users, so we can track who has rated what and when
+	has_many :ratings, dependent: :destroy
 	# Hopefully user's will upload an avatar, this is to generate thumbnails of it
 	dragonfly_accessor :avatar
 	# Make the user's email lower case to save any headaches when searching
@@ -55,6 +57,8 @@ class User < ActiveRecord::Base
 	def remove!(other_user)
 		relationships.find_by(friend_id: other_user.id).destroy
 	end
+
+	
 
 	private
 
