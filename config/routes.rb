@@ -5,6 +5,7 @@ RateMyBike::Application.routes.draw do
   resources :comments, only: [:create, :edit, :destroy]
   resources :images
   resources :relationships, only: [:create, :destroy]
+  resources :ratings, only: [:create]
 
   root to: 'static_pages#home'
 
