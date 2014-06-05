@@ -11,6 +11,11 @@ class BikesController < ApplicationController
 		@comments = @bike.comments
 		@comment = current_user.comments.build
 		@rating = Rating.new
+		@score = 0 
+		@bike.ratings.each do |f|
+			@score += @bike.ratings[score]
+		end
+		@score = score / @bike.ratings.count
 	end
 
 	def new

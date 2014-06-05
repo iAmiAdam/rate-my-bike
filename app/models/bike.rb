@@ -16,13 +16,4 @@ class Bike < ActiveRecord::Base
 
 
 	has_many :comments
-
-	def current_rating()
-		score = 0 
-		
-		Bike.ratings.each do |f|
-		score += Bike.ratings.score
-		end
-		score = score / Bike.ratings.count
-	end
 end
