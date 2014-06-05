@@ -18,10 +18,11 @@
 			<div class="well">
 					<p>This <strong><%= "#{@bike.make} #{@bike.model}" %></strong> currently has a rating of <strong><%= "#{@bike.rating}" %></strong></p>
 					 <% for i in 1..10 %>
-						<%= form_for(@rating) do |f|
-							f.hidden_field :bike_id, value: "#{@bike.id}" 
-							f.submit i, name: "score", class: "btn btn-large btn-primary"
-						end %>
+						<%= form_for(@rating) do |f| %>
+							<%= f.hidden_field :bike_id, :value => @bike.id %>
+							<%= f.hidden_field :score, :value => i %>
+							<%= f.submit i, class: "btn btn-large btn-primary" %>
+						<% end %>
 					 <% end %>
 			</div>
 			<div class="well">
