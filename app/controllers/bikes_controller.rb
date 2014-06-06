@@ -37,6 +37,16 @@ class BikesController < ApplicationController
 		end
 	end
 
+	def approval
+		@bikes = Bike.where("approved = ?", false)
+	end
+
+	def approve 
+		@bike = Bike.find_by(params[:id])
+		@bike.update_attribute(:approved, true)
+		redirect_to approval_path
+	end
+
 	private
 
 		def bike_params

@@ -15,9 +15,12 @@ RateMyBike::Application.routes.draw do
   match '/signup', to: 'users#new', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
-  match '/:username', to: 'users#show', via: 'get'
+  match '/approval', to: 'bikes#approval', via: 'get'
+  match '/approve/:id', to: 'bikes#approve', via: 'post'
   match '/settings/account', to: 'users#edit', via: 'get'
   match '/rate/:bike_id', to: 'ratings#create', via: 'get'
+  match '/:username', to: 'users#show', via: 'get'
+  
 
 
 
