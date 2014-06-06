@@ -11,8 +11,10 @@
 		<div class="well">
 			<% @bikes.each do |bike| %>
 				<%= render partial: bike, object: bike %>
-				<%= button_to "Approve", "/approve/#{bike.id}", class: "btn btn-success" %>
-				<%= button_to "Delete", "/approve/#{bike.id}", class: "btn btn-danger" %>
+				<div class="container-fluid">
+					<%= button_to "Approve", "/approve/#{bike.id}", class: "btn btn-success" %>
+					<%= button_to "Delete", "/approve/#{bike.id}", class: "btn btn-danger" %>
+				</div>
 				<% end %>
 		</div>
 	</div>
