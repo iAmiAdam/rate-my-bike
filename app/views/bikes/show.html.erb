@@ -16,7 +16,7 @@
 				<%= render partial: 'bikeInfo', :object => {:bike => @bike, :user => @user } %>
 			</div>
 			<div class="well">
-					<p>This <strong><%= "#{@bike.make} #{@bike.model}" %></strong> currently has a rating of <strong><%= @score %></strong></p>
+					<p>This <strong><%= "#{@bike.make} #{@bike.model}" %></strong> currently has a rating of <strong><%= @bike.current_rating %></strong></p>
 					 <% for i in 1..10 %>
 						<%= form_for(@rating) do |f| %>
 							<%= f.hidden_field :bike_id, :value => @bike.id %>

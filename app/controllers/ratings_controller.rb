@@ -6,7 +6,7 @@ class RatingsController < ApplicationController
 		else 
 			@rating = current_user.ratings.build(rating_params)
 			@rating.save
-			
+			redirect_to bike_path(params[:rating][:bike_id])
 		end
 	end
 

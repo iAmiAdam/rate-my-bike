@@ -16,4 +16,14 @@ class Bike < ActiveRecord::Base
 
 
 	has_many :comments
+
+	def current_rating
+		@score = 0 
+		self.ratings.each do |f|
+			@score += f.score
+		end
+		@score /= self.ratings.count
+		modulus = @score % self.ratings.count
+		"#{@score}.#{modulus}"
+	end
 end
