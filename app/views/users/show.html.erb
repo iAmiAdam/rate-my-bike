@@ -12,10 +12,10 @@
 			</div>
 		<div class="col-xs-12 col-sm-7 col-md-6 col-lg-6">
 			<div class="well">
-				<%= render @profile_bikes %>
+				<%= unless @profile_bikes.empty? then render @profile_bikes else "#{@user.username} Hasn't added any of his bikes yet." end %>
 			</div>
 			<div class="well">
-				<%= render @profile_comments %>
+				<%= unless @profile_comments.empty? then render @profile_comments else "#{@user.username} Hasn't commented on anyone else bikes yet." end %>
 			</div>
 		</div>
 	</div>

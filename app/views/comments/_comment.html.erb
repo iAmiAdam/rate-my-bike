@@ -1,5 +1,7 @@
 <div class="container-fluid" id="comment">
-	<%= image_tag @user.avatar.thumb("40x40#n").url, class: "comment-avatar" %>
-	<div class="comment-content"><p><%= comment.content %></p></div>
-	<div class="timestamp"><%= link_to time_ago_in_words(comment.created_at) + " ago", bike_path(comment.bike_id)  %></div>
+	<%= image_tag @user.avatar.thumb("50x50#n").url, class: "user-avatar", id: "comment-avatar" %>
+	<div class="container-fluid" id="comment-content">
+		<%= link_to "#{@user.username}", "/#{@user.username} " %> <%= link_to "#{time_ago_in_words(comment.created_at)} ago", bike_path(comment.bike_id) %>
+		<p><%= comment.content %></p>	
+	</div>
 </div>

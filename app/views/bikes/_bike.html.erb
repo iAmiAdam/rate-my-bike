@@ -1,5 +1,8 @@
 <div class="container-fluid">
-	<h2><%= link_to bike.name, bike_path(bike.id) %></h2>
-	<h4><%= bike.make + " " + bike.model %></h4>
-	<p><%= bike.description %></p>
+	<%= image_tag bike.picture.thumb('100x100#').url, class: "bike-thumb" %>
+	<div class="container-fluid" id="list-info">
+		<h2><%= link_to bike.name, bike_path(bike.id) %></h2>
+		<h4><%= bike.make + " " + bike.model %></h4>
+		<p><%= bike.description %></p>
+	</div>
 </div>

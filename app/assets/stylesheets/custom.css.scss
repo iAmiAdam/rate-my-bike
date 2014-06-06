@@ -24,18 +24,9 @@
 	margin-right: 5px;
 }
 
-.comment-content {
+#comment-content {
 	float: left;
 	display: block;
-}
-
-.timestamp {
-	float: left;
-	display: block;
-	clear: left;
-	a {
-		color: $gray-light;
-	}
 }
 
 /* Navbar */
@@ -149,6 +140,25 @@
 	text-align: center;
 }
 
+#list-info {
+	float: left;
+	h2 {
+		margin-top: 5px;
+		a{
+			color: black;
+		}
+	}
+}
+
+.user-avatar {
+	border-radius: 10px;
+	
+}
+
+#comment-avatar {
+		float: left;
+}
+
 /* Bike Profile */
 
 #bike-info {
@@ -156,4 +166,9 @@
 	h3 {
 		margin-top: 0px;
 	}
+}
+
+.bike-thumb {
+	float: left;
+	border-radius: 5px;
 }

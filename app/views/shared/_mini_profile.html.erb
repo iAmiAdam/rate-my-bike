@@ -1,7 +1,7 @@
 <% @user ||= current_user %>
 <div class="container-fluid" id="user-info">
 	
-	<%= image_tag @user.avatar.thumb('200x200#n').url %>
+	<%= unless current_user.avatar.nil? then image_tag @user.avatar.thumb('200x200#n').url, class: "user-avatar" else link_to '<i class="fa fa-user fa-5x"></i>'.html_safe, settings_account_path end %>
 
 
 	<h3><%= @user.username %></h3>
