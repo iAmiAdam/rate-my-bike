@@ -29,6 +29,12 @@
 	display: block;
 }
 
+.rating-form {
+	form {
+		display: inline-block;
+	}
+}
+
 /* Navbar */
 
 .navbar {
@@ -171,4 +177,8 @@
 .bike-thumb {
 	float: left;
 	border-radius: 5px;
+}
+
+#bike-images {
+	text-align: center;
 }

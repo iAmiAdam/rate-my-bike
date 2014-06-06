@@ -4,7 +4,9 @@
 	<div class="row">
 			<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-7 col-md-offset-1 col-lg-7 col-lg-offset-1">
 				<div class="well">
-					<%= image_tag @bike.picture.url %>
+					<div class="container-fluid" id="bike-images">
+						<%= image_tag @bike.picture.url %>
+					</div>
 				</div>
 				
 				<div class="well">
@@ -17,6 +19,7 @@
 			</div>
 			<div class="well">
 					<p>This <strong><%= "#{@bike.make} #{@bike.model}" %></strong> currently has a rating of <strong><%= @bike.current_rating %></strong></p>
+					<div class="rating-form">
 					 <% for i in 1..10 %>
 						<%= form_for(@rating) do |f| %>
 							<%= f.hidden_field :bike_id, :value => @bike.id %>
@@ -24,6 +27,7 @@
 							<%= f.submit i, class: "btn btn-large btn-primary" %>
 						<% end %>
 					 <% end %>
+					</div>
 			</div>
 			<div class="well">
 				<%= render @comments %>
